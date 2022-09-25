@@ -12,7 +12,10 @@ Config.MicrophoneZones = {
             debugPoly = Config.Showzone,
             heading = 340,
             minZ = 127.86,
-            maxZ = 131.86
+            maxZ = 131.86,
+            data = {
+                range = 50.0 -- range for the voice
+            }
         }
     }
 }

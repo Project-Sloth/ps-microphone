@@ -42,19 +42,14 @@ Citizen.CreateThread(function()
 	end
 end)
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
-    -- Code here
-    
     if string.starts(ZoneName, "microphone_") then
-        print(json.encode(ZoneData))
         oldProximity =  LocalPlayer.state['proximity'].distance
-        exports["pma-voice"]:overrideProximityRange(50.0, true)
+        exports["pma-voice"]:overrideProximityRange(ZoneData.range, true)
     end
 end)
 
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
-    -- Code here
     if string.starts(ZoneName, "microphone_") then
-        print("exited_microphone_zone")
         exports["pma-voice"]:clearProximityOverride()
     end
 end)
