@@ -18,20 +18,22 @@ Citizen.CreateThread(function()
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
         for k,v in ipairs(Config.MicrophoneZones) do
-            local dist = #(pos - v.coords)
-            if dist <= 150.0 then
-                if v.obj == nil then
-                    local obj = CreateObject(GetHashKey(prop), vector3(v.coords.x, v.coords.y, v.coords.z - 1.0), false)
-                    if v.data.heading ~= nil then
-                        SetEntityHeading(obj, v.heading)
+            if v.spawnProp then
+                local dist = #(pos - v.coords)
+                if dist <= 150.0 then
+                    if v.obj == nil then
+                        local obj = CreateObject(GetHashKey(prop), vector3(v.coords.x, v.coords.y, v.coords.z - 1.0), false)
+                        if v.data.heading ~= nil then
+                            SetEntityHeading(obj, v.heading)
+                        end
+                        FreezeEntityPosition(obj, true)
+                        v.obj = obj
                     end
-                    FreezeEntityPosition(obj, true)
-                    v.obj = obj
-                end
-            else
-                if v.obj then
-                    DeleteEntity(v.obj)
-                    v.obj = nil
+                else
+                    if v.obj then
+                        DeleteEntity(v.obj)
+                        v.obj = nil
+                    end
                 end
             end
         end
