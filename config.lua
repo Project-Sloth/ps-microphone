@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Showzone = true
+Config.Showzone = false
 
 Config.MicrophoneZones = {
     [1] = {
@@ -8,7 +8,7 @@ Config.MicrophoneZones = {
         coords = vector3(683.37, 569.31, 130.46),
         length = 3.4,
         width = 3.6,
-        spawnProp = true,
+        spawnProp = true, -- if set to true, it will let you spawn the prop at location
         data = {
             debugPoly = Config.Showzone,
             heading = 340,
