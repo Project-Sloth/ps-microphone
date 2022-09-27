@@ -54,6 +54,7 @@ Config.MicrophoneZones = {
 # Dependecies
 * Latest [pma-voice](https://github.com/AvarianKnight/pma-voice) 
 * [ps-zones](https://github.com/Project-Sloth/ps-zones)
+* [lj-inventory](https://github.com/loljoshie/lj-inventory)
 
 # Credits 
 * [Snipe](https://github.com/pushkart2)
