@@ -8,7 +8,6 @@ RegisterNetEvent("animations:client:EmoteCommandStart", function(table)
 end)
 
 RegisterNetEvent("megaphone:Toggle", function()
-    print(holdingMega)
     if not holdingMega then
         holdingMega = true
         CreateThread(function()
