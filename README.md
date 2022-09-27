@@ -1,14 +1,14 @@
 ![image](https://user-images.githubusercontent.com/82112471/191800203-0563a725-4b6a-4caf-9d3b-29239960b0d6.png)
 
 # ps-microphone
-Script to enhance as a microphone/loudspeaker when an user enters a define zoned. 
+Script to enhance as a microphone/loudspeaker when an user enters a define zoned.
 
 # Installation
 
 ## For Microphone
 
 * Download file and make sure it's named ps-microphone
-* Ensure ps-microphone 
+* Ensure ps-microphone
 * Add this to dp-emotes or your emotes menu/resource.
 
 ```
@@ -39,7 +39,7 @@ Config.MicrophoneZones = {
         width = 3.6, -- width of the created boxzone
         spawnProp = true, -- if set to true, it will let you spawn the prop at location
         data = {
-            debugPoly = Config.Showzone, 
+            debugPoly = Config.Showzone,
             heading = 340, -- heading from created boxzone
             minZ = 127.86, --minZ from the created boxzone
             maxZ = 131.86, -- maxZ from the created boxzone
@@ -52,10 +52,10 @@ Config.MicrophoneZones = {
 ```
 
 # Dependecies
-* Latest [pma-voice](https://github.com/AvarianKnight/pma-voice) 
+* Latest [pma-voice](https://github.com/AvarianKnight/pma-voice)
 * [ps-zones](https://github.com/Project-Sloth/ps-zones)
 
-# Credits 
+# Credits
 * [Snipe](https://github.com/pushkart2)
 * [Devyn](https://github.com/darktrovx)
 * [not jay](https://github.com/jay-fivem)

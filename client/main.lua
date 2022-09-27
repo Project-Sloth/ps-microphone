@@ -2,8 +2,8 @@ local oldProximity = 0.0
 
 local prop = "v_ilev_fos_mic"
 
-function string.starts(String,Start)    
-    return string.sub(String,1,string.len(Start))==Start 
+function string.starts(String,Start)
+    return string.sub(String,1,string.len(Start))==Start
 end
 CreateThread(function()
     for k, v in pairs(Config.MicrophoneZones) do

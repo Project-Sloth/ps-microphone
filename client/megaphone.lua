@@ -13,7 +13,7 @@ RegisterNetEvent("megaphone:Toggle", function()
         holdingMega = true
         CreateThread(function()
             while true do
-                Wait(1000) 
+                Wait(1000)
                 if not IsEntityPlayingAnim(PlayerPedId(),"amb@world_human_mobile_film_shocking@female@base", "base", 3) and holdingMega then
                     holdingMega = false
                     TriggerEvent('animations:client:EmoteCommandStart', {"c"})
