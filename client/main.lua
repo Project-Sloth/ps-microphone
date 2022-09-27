@@ -1,12 +1,12 @@
-local oldProximity = 0.0
-
 local prop = "v_ilev_fos_mic"
+local inRange
 
-function string.starts(String,Start)    
-    return string.sub(String,1,string.len(Start))==Start 
+function string.starts(String,Start)
+    return string.sub(String,1,string.len(Start))==Start
 end
+
 CreateThread(function()
-    for k, v in pairs(Config.MicrophoneZones) do
+    for _, v in pairs(Config.MicrophoneZones) do
         exports["ps-zones"]:CreateBoxZone("microphone_"..v.name, v.coords, v.length, v.width, v.data)
     end
 end)
@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
         inRange = false
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
-        for k,v in ipairs(Config.MicrophoneZones) do
+        for _, v in ipairs(Config.MicrophoneZones) do
             if v.spawnProp then
                 local dist = #(pos - v.coords)
                 if dist <= 150.0 then
@@ -43,14 +43,14 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "microphone_") then
-        oldProximity =  LocalPlayer.state['proximity'].distance
         exports["pma-voice"]:overrideProximityRange(ZoneData.range, true)
     end
 end)
 
-RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
+RegisterNetEvent("ps-zones:leave", function(ZoneName)
     if string.starts(ZoneName, "microphone_") then
         exports["pma-voice"]:clearProximityOverride()
     end
@@ -58,7 +58,7 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
 	if (GetCurrentResourceName() ~= resource) then return end
-    for k, v in pairs(Config.MicrophoneZones) do
+    for _, v in pairs(Config.MicrophoneZones) do
         if v.obj then
             DeleteEntity(v.obj)
             v.obj = nil
