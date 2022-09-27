@@ -1,5 +1,3 @@
-local oldProximity = 0.0
-
 local prop = "v_ilev_fos_mic"
 
 function string.starts(String,Start)
@@ -45,7 +43,6 @@ Citizen.CreateThread(function()
 end)
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "microphone_") then
-        oldProximity =  LocalPlayer.state['proximity'].distance
         exports["pma-voice"]:overrideProximityRange(ZoneData.range, true)
     end
 end)
