@@ -8,17 +8,19 @@ RegisterNetEvent("animations:client:EmoteCommandStart", function(table)
 end)
 
 RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
-    local _HasMegaphone = false
-    for _, item in pairs(val.items) do
-        if item.name == "megaphone" then
-            _HasMegaphone = true
-            break
+    if holdingMega then
+        local _HasMegaphone = false
+        for _, item in pairs(val.items) do
+            if item.name == "megaphone" then
+                _HasMegaphone = true
+                break
+            end
         end
-    end
-    if not _HasMegaphone then
-        holdingMega = false
-        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        exports["pma-voice"]:clearProximityOverride()
+        if not _HasMegaphone then
+            holdingMega = false
+            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+            exports["pma-voice"]:clearProximityOverride()
+        end
     end
 end)
 
