@@ -28,15 +28,15 @@ RegisterNetEvent("megaphone:Toggle", function()
     if not holdingMega then
         holdingMega = true
         CreateThread(function()
-            while true do
-                Wait(1000) 
+            while true do 
                 if not IsEntityPlayingAnim(PlayerPedId(),"amb@world_human_mobile_film_shocking@female@base", "base", 3) and holdingMega then
                     holdingMega = false
                     TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                     exports["pma-voice"]:clearProximityOverride()
-                    TerminateThisThread()
-                    break
+                    return
                 end
+                        
+                Wait(1000)
             end
         end)
         TriggerEvent('animations:client:EmoteCommandStart', {"megaphone"})
