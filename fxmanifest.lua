@@ -6,6 +6,7 @@ description 'Project Sloth Microphone Script'
 client_scripts {
   'client/main.lua',
   'client/megaphone.lua',
+  'client/submix.lua',
 }
 
 server_scripts {

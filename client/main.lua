@@ -1,10 +1,9 @@
-local oldProximity = 0.0
-
 local prop = "v_ilev_fos_mic"
 
 function string.starts(String,Start)    
     return string.sub(String,1,string.len(Start))==Start 
 end
+
 CreateThread(function()
     for k, v in pairs(Config.MicrophoneZones) do
         exports["ps-zones"]:CreateBoxZone("microphone_"..v.name, v.coords, v.length, v.width, v.data)
@@ -43,9 +42,10 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "microphone_") then
-        oldProximity =  LocalPlayer.state['proximity'].distance
+        TriggerServerEvent("ps-microphone:server:addSubmix")
         exports["pma-voice"]:overrideProximityRange(ZoneData.range, true)
     end
 end)
@@ -53,6 +53,7 @@ end)
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "microphone_") then
         exports["pma-voice"]:clearProximityOverride()
+        TriggerServerEvent("ps-microphone:server:removeSubmix")
     end
 end)
 

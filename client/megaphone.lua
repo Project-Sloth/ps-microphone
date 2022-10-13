@@ -4,6 +4,7 @@ RegisterNetEvent("animations:client:EmoteCommandStart", function(table)
     if table[1] == "c" and holdingMega then
         holdingMega = false
         exports["pma-voice"]:clearProximityOverride()
+        TriggerServerEvent("ps-microphone:server:removeSubmix")
     end
 end)
 
@@ -20,6 +21,7 @@ RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
             holdingMega = false
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             exports["pma-voice"]:clearProximityOverride()
+            TriggerServerEvent("ps-microphone:server:removeSubmix")
         end
     end
 end)
@@ -34,16 +36,19 @@ RegisterNetEvent("megaphone:Toggle", function()
                     holdingMega = false
                     TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                     exports["pma-voice"]:clearProximityOverride()
+                    TriggerServerEvent("ps-microphone:server:removeSubmix")
                     TerminateThisThread()
                     break
                 end
             end
         end)
         TriggerEvent('animations:client:EmoteCommandStart', {"megaphone"})
+        TriggerServerEvent("ps-microphone:server:addSubmix")
         exports["pma-voice"]:overrideProximityRange(50.0, true)
     else
         holdingMega = false
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         exports["pma-voice"]:clearProximityOverride()
+        TriggerServerEvent("ps-microphone:server:removeSubmix")
     end
 end)
