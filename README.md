@@ -24,7 +24,7 @@ Script to enhance as a microphone/loudspeaker when an user enters a define zoned
 * Add image to your inventory folder for the megaphone.
 * Add to qb-core > shared > items.lua
 ```
-	["megaphone"]						= {["name"] = "megaphone",			["label"] = "Megaphone",		["weight"] = 20000,	["type"] = "item",	["image"] = "magaphone.png",	["unique"] = true,	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	   ["description"] = "A loudspeaker to yell at civilians."},
+	["megaphone"]						= {["name"] = "megaphone",			["label"] = "Megaphone",		["weight"] = 20000,	["type"] = "item",	["image"] = "megaphone.png",	["unique"] = true,	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	   ["description"] = "A loudspeaker to yell at civilians."},
 ```
 
 ## For Zones
@@ -53,7 +53,8 @@ Config.MicrophoneZones = {
 
 # Dependecies
 * Latest [pma-voice](https://github.com/AvarianKnight/pma-voice) 
-* [PS-Zones](https://github.com/Project-Sloth/ps-zones)
+* [ps-zones](https://github.com/Project-Sloth/ps-zones)
+* [lj-inventory](https://github.com/loljoshie/lj-inventory)
 
 # Credits 
 * [Snipe](https://github.com/pushkart2)

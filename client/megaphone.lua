@@ -32,6 +32,23 @@ RegisterCommand("mega", function()
     TriggerEvent("megaphone:Toggle")
 end)
 
+RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+    if holdingMega then
+        local _HasMegaphone = false
+        for _, item in pairs(val.items) do
+            if item.name == "megaphone" then
+                _HasMegaphone = true
+                break
+            end
+        end
+        if not _HasMegaphone then
+            holdingMega = false
+            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+            exports["pma-voice"]:clearProximityOverride()
+        end
+    end
+end)
+
 RegisterNetEvent("megaphone:Toggle", function()
     if not holdingMega then
         holdingMega = true
