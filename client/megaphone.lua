@@ -25,12 +25,7 @@ function AddPropToPlayerAndAnim(prop1, bone, off1, off2, off3, rot1, rot2, rot3)
     AttachEntityToEntity(prop, Player, GetPedBoneIndex(Player, bone), off1, off2, off3, rot1, rot2, rot3, true, true, false, true, 1, true)
     SetModelAsNoLongerNeeded(prop1)
     TaskPlayAnim(Player, "amb@world_human_mobile_film_shocking@female@base", "base", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-
 end
-
-RegisterCommand("mega", function()
-    TriggerEvent("megaphone:Toggle")
-end)
 
 RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
     if holdingMega then
