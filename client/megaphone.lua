@@ -38,7 +38,7 @@ RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
         end
         if not _HasMegaphone then
             holdingMega = false
-            TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+            ClearPedTasksImmediately(PlayerPedId())
             exports["pma-voice"]:clearProximityOverride()
         end
     end
